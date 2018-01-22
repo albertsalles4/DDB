@@ -1,0 +1,189 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Modeltech_pe_edu_10.4a/examples
+Eand2
+Z0 w1513443702
+Z1 dF:/2n UB/DDB/Practica5
+Z2 8F:/2n UB/DDB/Practica5/Prev6_E00_Salles_Torruella_Albert_maquina.vhd
+Z3 FF:/2n UB/DDB/Practica5/Prev6_E00_Salles_Torruella_Albert_maquina.vhd
+l0
+L42
+VWQS6e3<:K@3Szh[>mJBHT1
+!s100 _^i_29FU9CJbVc=;ZSMbD3
+Z4 OP;C;10.4a;61
+32
+Z5 !s110 1513443720
+!i10b 1
+Z6 !s108 1513443718.000000
+Z7 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|F:/2n UB/DDB/Practica5/Prev6_E00_Salles_Torruella_Albert_maquina.vhd|
+Z8 !s107 F:/2n UB/DDB/Practica5/Prev6_E00_Salles_Torruella_Albert_maquina.vhd|
+!i113 1
+Z9 o-work work -2002 -explicit -O0
+Z10 tExplicit 1
+Alogica_retard
+Z11 DEx4 work 4 and2 0 22 WQS6e3<:K@3Szh[>mJBHT1
+l47
+L46
+Z12 VGD[CJV77JX4S@Z3WzKSco1
+Z13 !s100 mod:L6R;]?3C>P[01[JiS1
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+R9
+R10
+Ebanc_de_proves
+R0
+R1
+R2
+R3
+l0
+L89
+VWahba2V6D=4LLRC]A01CD3
+!s100 50JldVQcRV_zehdbVLD]F2
+R4
+32
+Z14 !s110 1513443721
+!i10b 1
+R6
+R7
+R8
+!i113 1
+R9
+R10
+Atest
+Z15 DEx4 work 7 circuit 0 22 M?^LIPSFOgjGW3Z:jPLeE2
+DEx4 work 14 banc_de_proves 0 22 Wahba2V6D=4LLRC]A01CD3
+l101
+L92
+V6MSc?N[zzo=oQC>TzOko^1
+!s100 G7zgDi`E4cmTzDLbVCUUF2
+R4
+32
+R14
+!i10b 1
+R6
+R7
+R8
+!i113 1
+R9
+R10
+Ecircuit
+R0
+R1
+R2
+R3
+l0
+L52
+VM?^LIPSFOgjGW3Z:jPLeE2
+!s100 1c^WOJ<@VM5Fj<dFC@PWK1
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+R9
+R10
+Aestructural
+Z16 DEx4 work 12 ff_jk_pujada 0 22 1mLDYP`lGIA<m46Zbj9U72
+R11
+Z17 DEx4 work 5 xnor2 0 22 XT_JD0LAV[E>o200bbFQZ0
+R15
+l77
+L56
+Z18 V59gV^h_mG0Pz5e28RHTzZ1
+Z19 !s100 <_YW2_P>X<9>MZd_hRm]V2
+R4
+32
+R14
+!i10b 1
+R6
+R7
+R8
+!i113 1
+R9
+R10
+Eff_jk_pujada
+R0
+R1
+R2
+R3
+l0
+L2
+V1mLDYP`lGIA<m46Zbj9U72
+!s100 YGfo7_W;l25UM8_h3^YGn0
+R4
+32
+!s110 1513443719
+!i10b 1
+R6
+R7
+R8
+!i113 1
+R9
+R10
+Aifthen
+R16
+l10
+L6
+Z20 VA0[m^@TmC5M??ibT0ATlb2
+Z21 !s100 M0hHP2IFM[NImN]1Jm71a3
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+R9
+R10
+Exnor2
+R0
+R1
+R2
+R3
+l0
+L32
+VXT_JD0LAV[E>o200bbFQZ0
+!s100 T701RgLiD@g>LWNo_TPAN2
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+R9
+R10
+Alogica_retard
+R17
+l37
+L36
+Z22 VdWkRFI`i5jF>KTZER8JC10
+Z23 !s100 F3DUic=7RM^1@h2>I^XHf1
+R4
+32
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+R9
+R10

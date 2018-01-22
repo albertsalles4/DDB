@@ -1,0 +1,62 @@
+{F:/2n UB/DDB/Practica2/LAB/bdp_comp4.vhd} {2 {vcom -work work -2002 -explicit -stats=none {F:/2n UB/DDB/Practica2/LAB/bdp_comp4.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Compiling entity bancdeproves
+-- Compiling architecture test of bancdeproves
+-- Loading entity funcio_2
+-- Loading entity funcio_aux
+** Warning: F:/2n UB/DDB/Practica2/LAB/bdp_comp4.vhd(32): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: F:/2n UB/DDB/Practica2/LAB/bdp_comp4.vhd(33): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: F:/2n UB/DDB/Practica2/LAB/bdp_comp4.vhd(34): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: F:/2n UB/DDB/Practica2/LAB/bdp_comp4.vhd(35): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: F:/2n UB/DDB/Practica2/LAB/bdp_comp4.vhd(36): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: F:/2n UB/DDB/Practica2/LAB/bdp_comp4.vhd(37): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: F:/2n UB/DDB/Practica2/LAB/bdp_comp4.vhd(38): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: F:/2n UB/DDB/Practica2/LAB/bdp_comp4.vhd(39): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: F:/2n UB/DDB/Practica2/LAB/bdp_comp4.vhd(40): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+
+} {} {}} {F:/2n UB/DDB/Practica2/LAB/P2_E00_Salles_Torruella_Albert_portes.vhd} {1 {vcom -work work -2002 -explicit -stats=none {F:/2n UB/DDB/Practica2/LAB/P2_E00_Salles_Torruella_Albert_portes.vhd}
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Compiling entity inv
+-- Compiling architecture logica of inv
+-- Compiling architecture logicaretard of inv
+-- Loading entity inv
+-- Compiling entity and2
+-- Compiling architecture logica of and2
+-- Compiling architecture logicaretard of and2
+-- Loading entity and2
+-- Compiling entity or2
+-- Compiling architecture logica of or2
+-- Compiling architecture logicaretard of or2
+-- Loading entity or2
+-- Compiling entity xor2
+-- Compiling architecture logica of xor2
+-- Compiling architecture logicaretard of xor2
+-- Loading entity xor2
+-- Compiling entity xnor2
+-- Compiling architecture logica of xnor2
+-- Compiling architecture logicaretard of xnor2
+-- Loading entity xnor2
+-- Compiling entity and3
+-- Compiling architecture logica of and3
+-- Compiling architecture logicaretard of and3
+-- Loading entity and3
+-- Compiling entity or3
+-- Compiling architecture logica of or3
+-- Compiling architecture logicaretard of or3
+-- Loading entity or3
+-- Compiling entity or4
+-- Compiling architecture logica of or4
+-- Compiling architecture logicaretard of or4
+-- Loading entity or4
+-- Compiling entity comp2
+-- Compiling architecture logica of comp2
+-- Compiling architecture logicaretard of comp2
+-- Loading entity comp2
+-- Compiling entity funcio_2
+-- Compiling entity funcio_aux
+-- Compiling architecture ifthen of funcio_2
+-- Compiling architecture ifthen of funcio_aux
+
+} {} {}}

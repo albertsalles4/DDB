@@ -1,0 +1,162 @@
+--JK_PUJADA_PRECLR
+ENTITY JK_Pujada_PreClr IS
+PORT(J,K,Clk,Pre,Clr: IN BIT; Q,NO_Q: OUT BIT);
+END JK_Pujada_PreClr;
+
+ARCHITECTURE ifthen OF JK_Pujada_PreClr IS
+SIGNAL qint: BIT;
+-- Aquesta és la forma de definir sortides que es realimenten
+-- a l?entrada. Recordem que en VHDL si una variable és de sortida no es
+-- pot utilitzar com a entrada de nou. Por a això definim una variable interna
+-- que després assignarem a la variable de sortida
+BEGIN
+
+PROCESS (J,K,Clk,Pre,Clr)
+BEGIN
+IF Pre='0' THEN qint<='0' AFTER 5 ns;
+ELSIF Clr='0' THEN qint<='1' AFTER 5 ns;
+ELSIF Clk'EVENT AND Clk = '1' THEN
+	IF J = '0' THEN
+		IF K = '0' THEN qint <= qint AFTER 5 ns;
+		ELSIF K = '1' THEN qint <= '0' AFTER 5 ns;
+		END IF;
+	ELSIF J = '1' THEN
+		IF K = '0' THEN qint <= '1' AFTER 5 ns;
+		ELSIF K = '1' THEN qint <= NOT qint AFTER 5 ns;
+		END IF;
+	END IF;
+END IF;
+END PROCESS;
+Q<=qint; NO_Q<=NOT qint;
+-- Aquí es on es fa l'assignació de les variables
+-- internes a les variables de sortida
+END ifthen;
+
+--D_LATCH_PRECLR--
+ENTITY D_Latch_PreClr IS
+PORT(D,Clk,Pre,Clr: IN BIT; Q,NO_Q: OUT BIT);
+END D_Latch_PreClr;
+
+ARCHITECTURE ifthen OF D_Latch_PreClr IS
+SIGNAL qint: BIT;
+BEGIN
+PROCESS (D,Clk,Pre,Clr)
+BEGIN
+IF Pre='0' THEN qint<='1' AFTER 5 ns;
+ELSE
+IF Clr='0' THEN qint<='0' AFTER 5 ns;
+ELSE
+	IF Clk='1' THEN qint <= D AFTER 5 ns;
+	END IF;
+END IF;
+END IF;
+
+END PROCESS;
+Q<=qint; NO_Q<=NOT qint;
+END ifthen;
+
+---AND2---
+ENTITY and2 IS
+PORT(a, b: IN BIT; z: OUT BIT);
+END and2;
+
+ARCHITECTURE logica OF and2 IS
+BEGIN
+z <= a AND b;
+END logica;
+
+-- No cal fer l'entitat NOR ja que es pot fer invertint
+-- els valors d'entrada i passant per la porta AND.
+-- Com que la inversa de x entra per la porta NOR, que 
+-- farem utilitzant una AND amb les entrades invertides,
+-- aleshores no cal invertir la x.
+
+--CIRCUIT_X_CK--
+ENTITY Circuit_x_Clk IS
+PORT(x, Clk: IN BIT; Q1,NO_Q1,J,K,z: OUT BIT);
+END Circuit_x_Clk;
+
+ARCHITECTURE estructural OF Circuit_x_Clk IS
+COMPONENT and2 IS
+PORT(a, b: IN BIT; z: OUT BIT);
+END COMPONENT;
+COMPONENT JK_Pujada_PreClr IS
+PORT(J,K,Clk,Pre,Clr: IN BIT; Q,NO_Q: OUT BIT);
+END COMPONENT;
+COMPONENT D_Latch_PreClr IS
+PORT(D,Clk,Pre,Clr: IN BIT; Q,NO_Q: OUT BIT);
+END COMPONENT;
+
+SIGNAL q1int, notq1int, Jint, Kint: BIT;
+
+FOR DUT1: D_Latch_PreClr USE ENTITY WORK.D_Latch_PreClr(ifthen);
+FOR DUT2: and2 USE ENTITY WORK.and2(logica);
+FOR DUT3: and2 USE ENTITY WORK.and2(logica);
+FOR DUT4: JK_Pujada_PreClr USE ENTITY WORK.JK_Pujada_PreClr(ifthen);
+
+BEGIN
+DUT1: D_Latch_PreClr PORT MAP (x,Clk,'1','1',q1int,notq1int);
+DUT2: and2 PORT MAP(x,notq1int,Jint);
+DUT3: and2 PORT MAP(x,notq1int,Kint); -- Representa una NOR amb entrada not x i q1
+DUT4: JK_Pujada_PreClr PORT MAP(Jint,Kint,Clk,'1','1',z);
+
+Q1 <= q1int;
+NO_Q1 <= notq1int;
+J <= Jint;
+K <= Kint;
+
+END estructural;
+
+-- Banco de Pruebas
+ENTITY banco_pruebas IS
+END banco_pruebas;
+
+ARCHITECTURE test OF banco_pruebas IS
+COMPONENT Circuit_x_Clk IS
+PORT(x, Clk: IN BIT; Q1,NO_Q1,J,K,z: OUT BIT);
+END COMPONENT;
+SIGNAL clock,entx,q1,notq1,Circuit_J,Circuit_K,Circuit_Z: BIT;
+FOR DUT1: Circuit_x_Clk USE ENTITY WORK.Circuit_x_Clk(estructural);
+BEGIN
+DUT1: Circuit_x_Clk PORT MAP (entx,clock,q1,notq1,Circuit_J,Circuit_K,Circuit_Z);
+
+PROCESS
+BEGIN
+clock <= '0';
+entx <= '0';
+WAIT FOR 100 ns;
+clock <= '1';
+WAIT FOR 30 ns;
+entx <= '1';
+WAIT FOR 70 ns;
+clock <= '0';
+WAIT FOR 100 ns;
+clock <= '1';
+WAIT FOR 50 ns;
+entx <= '0';
+WAIT FOR 50 ns;
+clock <= '0';
+WAIT FOR 70 ns;
+entx <= '1';
+WAIT FOR 30 ns;
+clock <= '1';
+WAIT FOR 50 ns;
+entx <= '0';
+WAIT FOR 50 ns;
+clock <= '0';
+WAIT FOR 100 ns;
+clock <= '1';
+WAIT FOR 10 ns;
+entx <= '1';
+WAIT FOR 20 ns;
+entx <= '0';
+WAIT FOR 40 ns;
+entx <= '1';
+WAIT FOR 20 ns;
+entx <= '0';
+WAIT FOR 10 ns;
+clock <= '0';
+END PROCESS;
+-- SIMULAR 800 ns
+END test;
+
